@@ -200,6 +200,6 @@ document.getElementById("myLink").click();
 	</br>
 		
 	
-	<div class="footer"><?php include('./footer.html');?></div>	
+	<div class="footer"><?php include('./footer.html');?></div>
 </body>
 </html>
