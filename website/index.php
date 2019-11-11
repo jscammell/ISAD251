@@ -24,49 +24,161 @@
     <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">THE MENU</span></h5>
   
     <div class="w3-row w3-center w3-card w3-padding">
-      <a href="javascript:void(0)" onclick="openMenu(event, 'Eat');" id="myLink">
-        <div class="w3-col s6 tablink">Eat</div>
+      <a href="javascript:void(0)" onclick="openMenu(event, 'Snacks');" id="myLink">
+        <div class="w3-col s6 tablink">Snacks</div>
       </a>
+
       <a href="javascript:void(0)" onclick="openMenu(event, 'Drinks');">
-        <div class="w3-col s6 tablink">Drink</div>
+        <div class="w3-col s6 tablink">Drinks</div>
       </a>
     </div>
 
-    <div id="Eat" class="w3-container menu w3-padding-48 w3-card">
-      <h5>Bread Basket</h5>
-      <p class="w3-text-grey">Assortment of fresh baked fruit breads and muffins 5.50</p><br>
-    
-      <h5>Honey Almond Granola with Fruits</h5>
-      <p class="w3-text-grey">Natural cereal of honey toasted oats, raisins, almonds and dates 7.00</p><br>
-    
-      <h5>Belgian Waffle</h5>
-      <p class="w3-text-grey">Vanilla flavored batter with malted flour 7.50</p><br>
-    
-      <h5>Scrambled eggs</h5>
-      <p class="w3-text-grey">Scrambled eggs, roasted red pepper and garlic, with green onions 7.50</p><br>
-    
-      <h5>Blueberry Pancakes</h5>
-      <p class="w3-text-grey">With syrup, butter and lots of berries 8.50</p>
+
+
+    <div id="Snacks" class="w3-container menu w3-padding-48 w3-card">
+      <div class="w3-row">
+    <div class="w3-col l3 s6">
+              <div class="w3-display-container">
+          <img src="images/snack_1.jfif" style="width:100%">          
+          <div class="w3-display-middle w3-display-hover">
+            <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
+          </div>       
+        <p>Muffins<br><b>$2.49</b></p>
+      </div>
+
+	  <div class="w3-Container">
+      <div class="w3-display-container">
+          <img src="images/snack_2.jpg" style="width:100%">          
+          <div class="w3-display-middle w3-display-hover">
+            <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
+          </div>
+		  </div>
+        <p>Buscuits<br><b>$19.99</b></p>
+      </div>
     </div>
+   
+
+
+	
+    <div class="w3-col l3 s6">
+      <div class="w3-container">
+        <div class="w3-display-container">
+          <img src="images/snack_3.jpeg" style="width:100%">          
+          <div class="w3-display-middle w3-display-hover">
+            <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
+          </div>
+		  </div>
+        <p>Ready salted crisps<br><b>$24.99</b></p>
+      </div>
+
+      <div class="w3-display-container">
+          <img src="images/snack_4.jpg" style="width:100%">          
+          <div class="w3-display-middle w3-display-hover">
+            <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
+          </div>
+        <p>Brownies<br><b>$19.99</b></p>
+      </div>
+    </div>
+
+	
+    <div class="w3-col l3 s6">
+      <div class="w3-container">
+        <div class="w3-display-container">
+          <img src="images/snack_5.jpg" style="width:100%">          
+          <div class="w3-display-middle w3-display-hover">
+            <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
+          </div>       
+		  </div>
+        <p>Millionaires shortbread<br><b>$24.99</b></p>
+      </div>
+	  
+
+      <div class="w3-display-container">
+          <img src="images/snack_6.jpg" style="width:100%">          
+          <div class="w3-display-middle w3-display-hover">
+            <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
+          </div>
+        <p>Banana<br><b>$19.99</b></p>
+      </div>
+    </div>
+    </div>
+	</div>
+
+
 
     <div id="Drinks" class="w3-container menu w3-padding-48 w3-card">
-      <h5>Coffee</h5>
-      <p class="w3-text-grey">Regular coffee 2.50</p><br>
-    
-      <h5>Chocolato</h5>
-      <p class="w3-text-grey">Chocolate espresso with milk 4.50</p><br>
-    
-      <h5>Corretto</h5>
-      <p class="w3-text-grey">Whiskey and coffee 5.00</p><br>
-    
-      <h5>Iced tea</h5>
-      <p class="w3-text-grey">Hot tea, except not hot 3.00</p><br>
-    
-      <h5>Soda</h5>
-      <p class="w3-text-grey">Coke, Sprite, Fanta, etc. 2.50</p>
-    </div>      
-  </div>
-</div>
+      <div class="w3-row">
+    <div class="w3-col l3 s6">
+              <div class="w3-display-container">
+          <img src="images/drink_1.jpg" style="width:100%">          
+          <div class="w3-display-middle w3-display-hover">
+            <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
+          </div>       
+        <p>Tea<br><b>$2.49</b></p>
+      </div>
+
+	  <div class="w3-Container">
+      <div class="w3-display-container">
+          <img src="images/drink_2.jfif" style="width:100%">          
+          <div class="w3-display-middle w3-display-hover">
+            <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
+          </div>
+		  </div>
+        <p>Americano<br><b>$19.99</b></p>
+      </div>
+    </div>
+   
+
+
+	
+    <div class="w3-col l3 s6">
+      <div class="w3-container">
+        <div class="w3-display-container">
+          <img src="images/drink_3.jpg" style="width:100%">          
+          <div class="w3-display-middle w3-display-hover">
+            <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
+          </div>
+		  </div>
+        <p>Latte<br><b>$24.99</b></p>
+      </div>
+
+      <div class="w3-display-container">
+          <img src="images/drink_4.jpg" style="width:100%">          
+          <div class="w3-display-middle w3-display-hover">
+            <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
+          </div>
+        <p>Espresso<br><b>$19.99</b></p>
+      </div>
+    </div>
+
+	
+    <div class="w3-col l3 s6">
+      <div class="w3-container">
+        <div class="w3-display-container">
+          <img src="images/drink_5.jpg" style="width:100%">          
+          <div class="w3-display-middle w3-display-hover">
+            <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
+          </div>       
+		  </div>
+        <p>Macchiato<br><b>$24.99</b></p>
+      </div>
+	  
+
+      <div class="w3-display-container">
+          <img src="images/drink_6.jpg" style="width:100%">          
+          <div class="w3-display-middle w3-display-hover">
+            <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
+          </div>
+        <p>Filter coffee<br><b>$19.99</b></p>
+      </div>
+    </div>
+    </div>
+	</div>
+	</div>
+
+
+
+
 	<script>
 // Tabbed Menu
 function openMenu(evt, menuName) {
