@@ -1,0 +1,8 @@
+CREATE TABLE Account(
+accountId INT PRIMARY KEY NOT NULL,
+permissions VARCHAR NOT NULL,
+name VARCHAR NOT NULL,
+telephone INT NOT NULL,
+email VARCHAR NOT NULL,
+password VARCHAR NOT NULL,
+);

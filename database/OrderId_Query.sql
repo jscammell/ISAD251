@@ -1,0 +1,5 @@
+CREATE TABLE OrderId(
+orderId INT NOT NULL PRIMARY KEY,
+accountId INT NOT NULL FOREIGN KEY REFERENCES Account(accountId),
+productId INT NOT NULL FOREIGN KEY REFERENCES Product(productId),
+);
