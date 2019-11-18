@@ -1,5 +1,7 @@
 CREATE TABLE PlacedOrder(
 orderId INT PRIMARY KEY FOREIGN KEY REFERENCES OrderId(orderId) NOT NULL,
 quantity INT NOT NULL,
+productId INT NOT NULL FOREIGN KEY REFERENCES Product(productId),
 orderCost DECIMAL(4,2) NOT NULL,
+tableNum INT NOT NULL,
 );
