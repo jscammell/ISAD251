@@ -1,8 +1,0 @@
-CREATE TABLE Account(
-accountId INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
-permissions VARCHAR(40) NOT NULL,
-name VARCHAR(40) NOT NULL,
-telephone INT NOT NULL,
-email VARCHAR(40) NOT NULL,
-password VARCHAR(40) NOT NULL,
-);
