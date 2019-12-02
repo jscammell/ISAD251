@@ -1,0 +1,47 @@
+CREATE TABLE Account(
+    accountId INT AUTO_INCREMENT NOT NULL,
+    permissions VARCHAR(45) NOT NULL,
+    name VARCHAR(45) NOT NULL,
+    telephone VARCHAR(45) NOT NULL,
+    email VARCHAR(45) NOT NULL,
+    password VARCHAR(45) NOT NULL,
+    PRIMARY KEY ( accountId )
+);
+
+
+
+
+CREATE TABLE Product(
+    productId INT AUTO_INCREMENT NOT NULL,
+    productName VARCHAR(45) NOT NULL,
+    productDetails VARCHAR(100) NOT NULL,
+    stockCount INT NOT NULL,
+    category VARCHAR(45) NOT NULL,
+    cost DECIMAL(4,2) NOT NULL,
+    PRIMARY KEY (productId)
+)
+
+
+
+CREATE TABLE OrderId(
+    orderId INT AUTO_INCREMENT NOT NULL,
+    accountId INT NOT NULL,
+    cost DECIMAL(4, 2) NOT NULL,
+    PRIMARY KEY (orderId),
+    FOREIGN KEY (accountId) REFERENCES account(accountId)
+);
+
+
+
+
+
+CREATE TABLE PlacedOrder(
+    orderId INT NOT NULL,
+    quantity INT NOT NULL,
+    productId INT NOT NULL,
+    orderCost DECIMAL(4,2) NOT NULL,
+    tableNum INT NOT NULL,
+    PRIMARY KEY (orderId),
+    FOREIGN KEY (orderId) REFERENCES OrderId(orderId),
+    FOREIGN KEY (productId) REFERENCES product(productId)
+);
