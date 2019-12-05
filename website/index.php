@@ -1,4 +1,25 @@
 <!doctype html>
+
+<!-- connecting database to website  -->
+<?php
+$servername = "proj-mysql.uopnet.plymouth.ac.uk";
+$database = "ISAD251_JScammell";
+$username = "ISAD251_JScammell";
+$password = "ISAD251_22212869";
+
+
+$conn = mysqli_connect($servername, $username, $password, $database);
+
+
+if (!$conn) {
+die("connection failed: " . mysqli_connect_error());
+}
+
+echo "connected successfully";
+
+?>
+
+
 <html>
 <head>
 <meta charset="utf-8">
@@ -9,7 +30,7 @@
 			<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 
-<body class="w3-content" style="max-width:1200px">
+<body class="w3-content" style="max-width:100%">
 
 
 	<div class="header"><?php include('./header.html');?></div>
@@ -19,7 +40,7 @@
 
 	<!-- Menu Container -->
 <div class="w3-container" id="menu">
-  <div class="w3-content" style="max-width:700px">
+  <div class="w3-content" style="max-width:100%">
  
     <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">THE MENU</span></h5>
   

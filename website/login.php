@@ -6,7 +6,7 @@
 <link href="login.css" rel="stylesheet" type="text/css">
 </head>
 
-<body>
+<body class="w3-content" style="max-width:100%">
 
 <div class="header"><?php include('./header.html');?></div>
 
