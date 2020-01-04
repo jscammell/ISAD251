@@ -44,3 +44,24 @@ li a:hover {
 .logo{
 	float: left;
 }
+
+
+li form_group {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  margin: 16px;
+}
+
+
+li label {
+  display: block;
+  float: left
+  color: white;
+  text-align: center;
+  padding-right: 50px;
+  text-decoration: none;
+  margin: 16px;
+}

@@ -1,0 +1,19 @@
+/* CSS index */
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+.w3-sidebar a {font-family: "Roboto", sans-serif}
+
+
+
+.bg
+{
+  width: 100%;
+  z-index: 0;
+  style="width:100%;
+  max-width:100%;
+  margin-top:32px;
+}
