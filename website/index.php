@@ -1,5 +1,29 @@
 <!doctype html>
 
+<!-- -----------------------------------------------------------------------------  -->
+<!--	Author			- Josh Scammell												-->
+<!--	Subject			- Computer information and security							-->
+<!--	Module			- ISAD251													-->
+<!--	Lecturer		- Shirley Atkinson											-->
+<!--	submission Date - 10/01/2020												-->
+<!--																				-->
+<!--	Program name	- Tea room ordering system									-->
+<!--	Version			- 1.0														-->
+<!--	Description		-															-->	
+<!--																				-->
+<!--																				-->
+<!--																				-->
+<!-- -----------------------------------------------------------------------------  -->
+
+
+
+
+
+
+
+
+
+
 <!-- connecting database to website  -->
 <?php
 $servername = "proj-mysql.uopnet.plymouth.ac.uk";
@@ -262,7 +286,7 @@ mysqli_close($conn);
 <form name = "form2" action="basketAdd.php" method = "post" enctype = "multipart/form-data" >
     <div id="Drinks" class="w3-container menu w3-padding-48 w3-card">
     <div class="w3-row">
-    <div class="w3-col l3 s6">
+	  <div class="w3-col l3 s6">
 
 		<!--	Display Tea	  - drink 1	 -->
           <div class="w3-display-container">
@@ -293,47 +317,103 @@ mysqli_close($conn);
 
          </div> 
        
-
-
-
-
+	   		 	  
 	  <div class="w3-Container">
-      <div class="w3-display-container">
+        <div class="w3-display-container">
           <img src="images/drink_2.jfif" style="width:100%">          
           <div class="w3-display-middle w3-display-hover">
-            <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
+			 <button name='orderButton' value="drink2" class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
+          </div>   
+		</div>
+		  <?php
+			//	Read the Product table and display cost, product and description contents on the website page. 
+			{
+			$conn = mysqli_connect($servername, $username, $password, $database);
+			$sql="SELECT productName, productDetails, stockCount, cost FROM product WHERE productId= 8";
+			$result = $conn->query($sql);
+			$obj = mysqli_fetch_object($result);
 
-	<!--	<label>Permissions (Admin or User):  </label>				-->
-			<input type ="button" name ="drink2" value="2" />
+			echo "<br><td>{$obj->productName}</td>";
+			echo "<br><b>$<td>{$obj->cost}</td></b>";
+			echo "<br><br>";
+			if ($obj->stockCount < 1)
+			{
+				echo "<b><td> OUT OF STOCK </td></b>";
+			} else {
+				echo "<td>{$obj->productDetails}</td>";
+			}
+			echo "<br><br><br>";
+			}
+		?>
 
-          </div>
-		  </div>
-        <p>Americano<br><b>$19.99</b></p>
-      </div>
-    </div>
-   
-
-
+       </div> 
+	 </div>
+ 
+ 
 	
-    <div class="w3-col l3 s6">
+    <div class="w3-col l3 s6">	
       <div class="w3-container">
         <div class="w3-display-container">
           <img src="images/drink_3.jpg" style="width:100%">          
           <div class="w3-display-middle w3-display-hover">
-            <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
-          </div>
-		  </div>
-        <p>Latte<br><b>$24.99</b></p>
-      </div>
+			 <button name='orderButton' value="drink3" class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
+          </div>  
+		</div>
+		  <?php
+			//	Read the Product table and display cost, product and description contents on the website page. 
+			{
+			$conn = mysqli_connect($servername, $username, $password, $database);
+			$sql="SELECT productName, productDetails, stockCount, cost FROM product WHERE productId= 9";
+			$result = $conn->query($sql);
+			$obj = mysqli_fetch_object($result);
+
+			echo "<br><td>{$obj->productName}</td>";
+			echo "<br><b>$<td>{$obj->cost}</td></b>";
+			echo "<br><br>";
+			if ($obj->stockCount < 1)
+			{
+				echo "<b><td> OUT OF STOCK </td></b>";
+			} else {
+				echo "<td>{$obj->productDetails}</td>";
+			}
+			echo "<br><br><br>";
+			}
+		?>
+
+       </div> 
+	
+ 
 
       <div class="w3-display-container">
           <img src="images/drink_4.jpg" style="width:100%">          
           <div class="w3-display-middle w3-display-hover">
-            <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
-          </div>
-        <p>Espresso<br><b>$19.99</b></p>
-      </div>
-    </div>
+			 <button name='orderButton' value="drink4" class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
+          </div>  
+	  
+		  <?php
+			//	Read the Product table and display cost, product and description contents on the website page. 
+			{
+			$conn = mysqli_connect($servername, $username, $password, $database);
+			$sql="SELECT productName, productDetails, stockCount, cost FROM product WHERE productId= 10";
+			$result = $conn->query($sql);
+			$obj = mysqli_fetch_object($result);
+
+			echo "<br><td>{$obj->productName}</td>";
+			echo "<br><b>$<td>{$obj->cost}</td></b>";
+			echo "<br><br>";
+			if ($obj->stockCount < 1)
+			{
+				echo "<b><td> OUT OF STOCK </td></b>";
+			} else {
+				echo "<td>{$obj->productDetails}</td>";
+			}
+			echo "<br><br><br>";
+			}
+		?>
+
+      </div> 
+	</div>
+
 
 	
     <div class="w3-col l3 s6">
@@ -341,33 +421,79 @@ mysqli_close($conn);
         <div class="w3-display-container">
           <img src="images/drink_5.jpg" style="width:100%">          
           <div class="w3-display-middle w3-display-hover">
-            <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
-          </div>       
-		  </div>
-        <p>Macchiato<br><b>$24.99</b></p>
-      </div>
-	  
+			 <button name='orderButton' value="drink5" class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
+          </div>
+		</div>
+		  <?php
+			//	Read the Product table and display cost, product and description contents on the website page. 
+			{
+			$conn = mysqli_connect($servername, $username, $password, $database);
+			$sql="SELECT productName, productDetails, stockCount, cost FROM product WHERE productId= 11";
+			$result = $conn->query($sql);
+			$obj = mysqli_fetch_object($result);
+
+			echo "<br><td>{$obj->productName}</td>";
+			echo "<br><b>$<td>{$obj->cost}</td></b>";
+			echo "<br><br>";
+			if ($obj->stockCount < 1)
+			{
+				echo "<b><td> OUT OF STOCK </td></b>";
+			} else {
+				echo "<td>{$obj->productDetails}</td>";
+			}
+			echo "<br><br><br>";
+			}
+		?>
+
+      </div> 
+		  
 
       <div class="w3-display-container">
           <img src="images/drink_6.jpg" style="width:100%">          
           <div class="w3-display-middle w3-display-hover">
-            <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
-          </div>
-        <p>Filter coffee<br><b>$19.99</b></p>
-      </div>
-    </div>
-    </div>
+			 <button name='orderButton' value="drink6" class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
+          <div>  
+		</div>
+		  <?php
+			//	Read the Product table and display cost, product and description contents on the website page. 
+			{
+			$conn = mysqli_connect($servername, $username, $password, $database);
+			$sql="SELECT productName, productDetails, stockCount, cost FROM product WHERE productId= 12";
+			$result = $conn->query($sql);
+			$obj = mysqli_fetch_object($result);
+
+			echo "<br><td>{$obj->productName}</td>";
+			echo "<br><b>$<td>{$obj->cost}</td></b>";
+			echo "<br><br>";
+			if ($obj->stockCount < 1)
+			{
+				echo "<b><td> OUT OF STOCK </td></b>";
+			} else {
+				echo "<td>{$obj->productDetails}</td>";
+			}
+			echo "<br><br><br>";
+			}
+		?>
+
+        </div> 
+	</div>
+
+
+
+ <!--   
+   	
+-->
+	</div>
+	</div>
 	</div>
 
 	</form>
 
+<!--
 	</div>
+-->
 
 
-
-
-
-	
 
 
 

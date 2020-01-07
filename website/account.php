@@ -18,6 +18,8 @@
 	<link href="header.css" rel="stylesheet" type="text/css">
 	<h2>Account Creation</h2>
 
+
+
 	</div>
 		<form name = "form" action="accountAdd.php" method = "post" enctype = "multipart/form-data" >
 			<div class = "container">
@@ -27,7 +29,7 @@
 		-->
 				</div>
 				<div class "form_group">
-					<label>Permissions (Admin or User):  </label>
+					<label>Permissions ("admin" or "customer"):  </label>
 					<input type ="text" name ="permissions" value=""  required/>
 				</div>
 				<div class "form_group">

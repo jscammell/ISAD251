@@ -37,40 +37,37 @@
 	$accountPwd = $_POST['accountPwd'];
 
 
-//	$orderItemNum = $_POST['orderItemNum'];
-//	$quantity = $_POST['quantity'];
-//	$productId = $_POST['productId'];
-//	$productName = $_POST['productName'];
-//	$orderCost = $_POST['orderCost'];
-//	$tableNum = $_POST['tableNum'];
+	   	 
+	//  Check permissions of the person logged on is allowed to use the Account screen.		
+	//  Only permissions = Admin is allowed.												
+	//  Read the "LoggedOn" table to check user and permissions.							
+
+    $conn = mysqli_connect($servername, $username, $password, $database);
+	if (!$conn) {
+		die("connection failed: " . mysqli_connect_error());
+	}
+	
+	// Check that the email address (Account Number) does not already exist.
+	// If so, then return an error and not create the account.
+	//
+	$sql="SELECT permissions FROM loggedon WHERE permissions = 'admin'";
+	$result = $conn->query($sql);
+	$obj = mysqli_fetch_object($result);
+	$numrows = mysqli_num_rows($result);
+	if (($numrows == 0) or ($obj->permissions != 'admin'))  {
+		echo "You do not have permissions to use this screen. ";
+		echo "<br>";
+		echo "Please login with a differnt user account ";
+		echo "<br>";
+
+		//		mysqli_free_result($result);
+		mysqli_close($conn);
+
+	//
+	// Else user has persissions to use this screen
+	} else {
 
 
-
-//		//	Insert Account details into the account table. 
-//	{
-//			$conn = mysqli_connect($servername, $username, $password, $database);
-//			if (!$conn) {
-//				die("connection failed: " . mysqli_connect_error());
-//	}
-//
-//			$sql="SELECT accountId, permissions, name, telephone, email, password FROM account";
-//			$result = $conn->query($sql);
-//			$obj = mysqli_fetch_object($result);
-//
-//		//	$sql="INSERT INTO basket (quantity, productId, productName, orderCost, tableNum) VALUES (2, '$obj->productId', '$obj->productName', '$obj->cost', 17)";
-//		//	if ($conn->query($sql) === TRUE)  {
-//		//		echo "New record created successfully";
-//		//	} else {
-//		//		echo "Error " . $sql . "<br>" . $conn->error;
-//		//	}
-//
-//		
-//
-//			mysqli_free_result($result);
-//
-//			mysqli_close($conn);
-//
-//		
 
 
 		if ($_POST['btnAdd'])  {	
@@ -120,7 +117,8 @@
 			
 
 		} // end if
-	}
+	} // end elseif
+}
 
 
 

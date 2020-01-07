@@ -54,16 +54,16 @@
 			if ($result)		// If basket contains order  then print on screen.
 			{
 				echo "<br>";
-				echo " Order Item ... Qty ... ProdId .. Product Name ... Cost ";
+				echo " Order Item ... Qty ... ProdId .. Product Name ................ Cost ";
 				echo "<br>";
 				while ($obj=mysqli_fetch_object($result))
 					{
 					printf ("%s ",$obj->orderItemNum);
-					echo " ..........    ";
+					echo " ..............    ";
 					printf ("%s ",$obj->quantity);
-					echo "  ....   ";
+					echo "  ......   ";
 					printf ("%s ",$obj->productId);
-					echo "........     ";
+					echo "..........     ";
 					printf ("%s ",$obj->productName);
 					echo "  ................  $";
 					printf ("%s ",$obj->orderCost);

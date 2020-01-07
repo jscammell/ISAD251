@@ -16,7 +16,7 @@
 
 	<div class="header"><?php include('./header.html');?></div>
 	<link href="header.css" rel="stylesheet" type="text/css">
-	<h2>Display All Accounts</h2>
+	<h2>Display All Products</h2>
 
 
 <?php
@@ -25,8 +25,6 @@
 	$database = "ISAD251_JScammell";
 	$username = "ISAD251_JScammell";
 	$password = "ISAD251_22212869";
-
-
 
 	//  Check permissions of the person logged on is allowed to use the Account screen.		
 	//  Only permissions = Admin is allowed.												
@@ -57,11 +55,9 @@
 	// Else user has persissions to use this screen
 	} else {
 
-
-
 		if ($_POST['btnShow'])  {	
 		//
-		//	Display all records saved in the Account table when button-show pressed
+		//	Display all records saved in the product table when button-show pressed
 		//
 		//	{
 			$conn = mysqli_connect($servername, $username, $password, $database);
@@ -69,28 +65,27 @@
 				die("connection failed: " . mysqli_connect_error());
 			}
 
-			$sql="SELECT accountId, permissions, name, telephone, email, accountPwd FROM account  WHERE accountId>0";
+			$sql="SELECT productId, productName, productDetails, stockCount, category, cost FROM product  WHERE productId>0";
 			$result = $conn->query($sql);
 	//		$obj = mysqli_fetch_object($result);
 
 	//		if ($result -> $obj->accountId > 0)  {
-								
-				echo "<br>";
-				echo " ID ... Permissions. Name...... .. email.... ... Password";
+						
+				echo "<b> ID ... Name........Description................Quantity.......Category......Cost </b>";
 				echo "<br>";
 				while ($obj=mysqli_fetch_object($result))
 					{
-					printf ("%s ",$obj->accountId);
+					printf ("%s ",$obj->productId);
 					echo " ...    ";
-					printf ("%s ",$obj->permissions);
-					echo "  ...   ";
-					printf ("%s ",$obj->name);
-					echo "........     ";
-					printf ("%s ",$obj->telephone);
-					echo "  ..... .......  ";
-					printf ("%s ",$obj->email);
-					echo "   .......  ";
-					printf ("%s \n",$obj->accountPwd);
+					printf ("%s ",$obj->productName);
+					echo "  ......   ";
+					printf ("%s ",$obj->productDetails);
+					echo "...........     ";
+					printf ("%s ",$obj->stockCount);
+					echo "  ............  ";
+					printf ("%s ",$obj->category);
+					echo "   ...........  ";
+					printf ("%s \n",$obj->cost);
 					echo "<br>";
 				
 				} //end while
@@ -105,9 +100,9 @@
 		} // end if
 	} // end elseif
 
-		echo "<br>";
-		echo '<form><input type="button" value="Return to previous page" onClick="javascript:history.go(-1)"></form>';
-
+	echo "<br>";
+	echo '<form><input type="button" value="Return to previous page" onClick="javascript:history.go(-1)"></form>';
+	echo "<br>";
 ?>
 
 </body>

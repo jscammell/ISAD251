@@ -16,7 +16,7 @@
 
 	<div class="header"><?php include('./header.html');?></div>
 	<link href="header.css" rel="stylesheet" type="text/css">
-	<h2>Display All Accounts</h2>
+	<h2>New Product Created Status</h2>
 
 
 <?php
@@ -26,9 +26,17 @@
 	$username = "ISAD251_JScammell";
 	$password = "ISAD251_22212869";
 
+//
+//  Data values entered on the product.php page
+//
+	$productName = $_POST['productName'];
+	$productDetails = $_POST['productDetails'];
+	$stockCount = $_POST['stockCount'];
+	$category = $_POST['category'];
+	$cost = $_POST['cost'];
 
-
-	//  Check permissions of the person logged on is allowed to use the Account screen.		
+//		
+//  Check permissions of the person logged on is allowed to use the Account screen.		
 	//  Only permissions = Admin is allowed.												
 	//  Read the "LoggedOn" table to check user and permissions.							
 
@@ -57,11 +65,9 @@
 	// Else user has persissions to use this screen
 	} else {
 
-
-
-		if ($_POST['btnShow'])  {	
+//	if ($_POST['btnAdd'])  {	
 		//
-		//	Display all records saved in the Account table when button-show pressed
+		//	Insert (Add) the single product record in the product table when button-add pressed
 		//
 		//	{
 			$conn = mysqli_connect($servername, $username, $password, $database);
@@ -69,47 +75,43 @@
 				die("connection failed: " . mysqli_connect_error());
 			}
 
-			$sql="SELECT accountId, permissions, name, telephone, email, accountPwd FROM account  WHERE accountId>0";
-			$result = $conn->query($sql);
-	//		$obj = mysqli_fetch_object($result);
 
-	//		if ($result -> $obj->accountId > 0)  {
-								
+		
+		//
+		// New product can be created (insert)
+		$sql="INSERT INTO product (productName, productDetails, stockCount, category, cost) VALUES ('$productName', '$productDetails', '$stockCount', '$category', '$cost')";
+			if ($conn->query($sql) === TRUE)  {
+				echo "New product created successfully. ";
 				echo "<br>";
-				echo " ID ... Permissions. Name...... .. email.... ... Password";
+				echo "Product: ";
+				printf ("%s ",$productName);
+				echo " -  Description: ";
+				printf ("%s ",$productDetails);
 				echo "<br>";
-				while ($obj=mysqli_fetch_object($result))
-					{
-					printf ("%s ",$obj->accountId);
-					echo " ...    ";
-					printf ("%s ",$obj->permissions);
-					echo "  ...   ";
-					printf ("%s ",$obj->name);
-					echo "........     ";
-					printf ("%s ",$obj->telephone);
-					echo "  ..... .......  ";
-					printf ("%s ",$obj->email);
-					echo "   .......  ";
-					printf ("%s \n",$obj->accountPwd);
-					echo "<br>";
-				
-				} //end while
+			} else {
+				echo "Error " . $sql . "<br>" . $conn->error;
+			}
 	
-				mysqli_free_result($result);
-
-	//		}  //endif
+	//		mysqli_free_result($result);
 
 			mysqli_close($conn);
+			
 
-
-		} // end if
+//		} // end if
 	} // end elseif
 
-		echo "<br>";
-		echo '<form><input type="button" value="Return to previous page" onClick="javascript:history.go(-1)"></form>';
+	//}
 
+
+
+	echo "<br>";
+	echo "<br>";
+	echo '<form><input type="button" value="Return to previous page" onClick="javascript:history.go(-1)"></form>';
 ?>
+
+
 
 </body>
 
 </html>
+

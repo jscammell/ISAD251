@@ -66,16 +66,15 @@ $table = $_POST['table'];	// Table number
 			$objloggedOn = mysqli_fetch_object($resultloggedOn);
 
 	//		if ($result -> $obj->accountId > 0)  {
-					printf ("%s ",$objloggedOn->accountId);
-					echo " ...    ";
-					printf ("%s ",$objloggedOn->permissions);
-					echo "  ...   ";
+					echo " <b> Customer Account:  </b>    ";
 					printf ("%s ",$objloggedOn->email);
-					echo "   .......  ";
+					echo " .......  <b>  Permissions:   </b> ";
+					printf ("%s ",$objloggedOn->permissions);
+										
 
 					$accountId = $objloggedOn->accountId;
 					printf ("%s ",$accountId);
-					echo "<br><br>";
+					echo "<br>";
 
 				mysqli_free_result($resultloggedOn);
 
@@ -97,14 +96,20 @@ $table = $_POST['table'];	// Table number
 				die("connection failed: " . mysqli_connect_error());
 			}
 
-//			$sql="INSERT INTO orderId (accountId, Cost) VALUES ($accountId, 0.01)";
-//			if ($conn->query($sql) === TRUE)  {
-//				$last_orderId = $conn->insert_id;
-//				echo "";		// "New record created successfully";
-//			} else {
-//				echo "Error " . $sql . "<br>" . $conn->error;
-//			}
-				$last_orderId = 1;  //$conn->insert_id;
+			$sql="INSERT INTO orderId (accountId, Cost) VALUES ($accountId, 0.01)";
+			if ($conn->query($sql) === TRUE)  {
+				$last_orderId = $conn->insert_id;		// This finds the new order number created
+				echo "";		// "New record created successfully";
+			} else {
+				echo "Error " . $sql . "<br>" . $conn->error;
+			}
+				
+			// Display new order number on the screen - $last_oderId 
+			echo " <b> Order Number:  </b>    ";
+			printf ("%s ",$last_orderId);
+			echo "<br><br>";
+
+
 			mysqli_close($conn);
 
 
@@ -131,7 +136,7 @@ $table = $_POST['table'];	// Table number
 			{
 				// Insert new records into "placedorder" table from "basket" and "orderId" table values
 				$sql="INSERT INTO placedorder (orderId, orderItemNum, quantity, productId, productName, orderCost, tableNum) 
-						VALUES (1, '$objbasket->orderItemNum', '$objbasket->quantity', '$objbasket->productId', '$objbasket->productName', '$objbasket->orderCost', '$table')";
+						VALUES ($last_orderId, '$objbasket->orderItemNum', '$objbasket->quantity', '$objbasket->productId', '$objbasket->productName', '$objbasket->orderCost', '$table')";
 //				$sql="INSERT INTO placedorder (orderId, orderItemNum, quantity, productId, orderCost, tableNum) 
 //					VALUES ($last_orderId, '$objbasket->orderItemNum', '$objbasket->quantity', '$objbasket->productId', '$objbasket->orderCost', '$table')";
 
@@ -146,22 +151,29 @@ $table = $_POST['table'];	// Table number
 
 
 				// Print on screen for records processed.
+				echo " Order No:    ";
 				printf ("%s ",$last_orderId);
-				echo " ...    ";
+				echo " .....    ";
+				echo " Item No:    ";
 				printf ("%s ",$objbasket->orderItemNum);
 				echo " ...    ";
+				echo " Qty:    ";
 				printf ("%s ",$objbasket->quantity);
 				echo "  ...   ";
-				printf ("%s ",$objbasket->productId);
-				echo "........     ";
+		//		echo " Product:    ";
+		//		printf ("%s ",$objbasket->productId);
+				echo "...........     ";
 				printf ("%s ",$objbasket->productName);
-				echo "........     ";
+				echo ".................     ";
+				echo " Cost:    ";
 				printf ("%s ",$objbasket->orderCost);
 				echo "  ..... .......  ";
+				echo " Table:    ";
 				printf ("%s ",$table);
 				echo "   .......  ";
-				printf ("%s ",$accountId);
-				echo "   .......  ";
+		//		echo " Account Id    ";
+		//		printf ("%s ",$accountId);
+				
 				echo "<br>";
 
 			} //end while
@@ -212,8 +224,8 @@ $table = $_POST['table'];	// Table number
 				die("connection failed: " . mysqli_connect_error());
 			}
 
-//			$sql="UPDATE orderid SET cost = $orderCost_Total  WHERE  orderId = $last_orderId;	
-			$sql="UPDATE orderid SET cost = $orderCost_Total  WHERE  orderId = 1";	
+			// move total cost into Order table (UPDATE)		
+			$sql="UPDATE orderid SET cost = $orderCost_Total  WHERE  orderId = $last_orderId";	
 			if ($conn->query($sql) === TRUE)  {
 				echo "";		// "Record UPDATED successfully";
 			} else {
@@ -239,19 +251,18 @@ $table = $_POST['table'];	// Table number
 			if (!$conn) {
 				die("connection failed: " . mysqli_connect_error());
 }	}
-//	//		DELETE all values from Basket table.
-//			$sql="DELETE FROM basket WHERE 1=1";
-//
-//				if ($conn->query($sql) === TRUE)  {
-//					echo "";		// "Records deleted successfully";
-//				} else {
-//					echo "Error " . $sql . "<br>" . $conn->error;
-//				}
-//
-//				echo "<br>";
-//				echo "<td>**  Deleted Order Basket   **</td>";
-//				echo "<br>";	
+	//		DELETE all values from Basket table.
+			$sql="DELETE FROM basket WHERE 1=1";
 
+				if ($conn->query($sql) === TRUE)  {
+					echo "";		// "Records deleted successfully";
+				} else {
+					echo "Error " . $sql . "<br>" . $conn->error;
+				}
+
+			//	echo "<br>";
+			//	echo "<td>**  Deleted Order Basket   **</td>";
+			//	echo "<br>";	
 
 			mysqli_close($conn);
 
@@ -283,13 +294,13 @@ $table = $_POST['table'];	// Table number
 			$objAccount = mysqli_fetch_object($resultAccount);
 
 			//  now find the order details from table "placedorder" using OrderId from the main order
-			$sql="SELECT orderItemNum, quantity, productId, productName, orderCost, tableNum FROM placedorder WHERE orderId = $objOrderId->orderId";
+			$sql="SELECT orderItemNum, quantity, productId, productName, orderCost, tableNum FROM placedorder WHERE orderId = $last_orderId";
 			$resultPlacedOrder = $conn->query($sql);
 	//		$objPlacedOrder = mysqli_fetch_object($resultPlacedOrder);
 
 		
 		//	Print on screen the Order, Person and Detail information
-					   
+				echo "<br><br>";	   
 				echo "Order Number: ";
 				printf ("%s ",$objOrderId->orderId);
 				echo "Total Cost: $";
@@ -302,19 +313,22 @@ $table = $_POST['table'];	// Table number
 
 				while ($objPlacedOrder=mysqli_fetch_object($resultPlacedOrder))
 				{
-					echo "Order Quantity: ";
+					echo "Quantity: ";
 					printf ("%s ",$objPlacedOrder->quantity);
 					echo " ...    ";
 					
-					echo "Item ";
+					echo "Item: ";
 					printf ("%s ",$objPlacedOrder->productName);
-					echo " ...    ";
+					echo " ...........    ";
 
-					echo "Item Cost  $";
+					echo "Cost  $";
 					printf ("%s ",$objPlacedOrder->orderCost);
-					echo " ...    ";
+					echo " ...........    ";
 					
-					echo "<br>";
+					echo "Table:";
+					printf ("%s ",$objPlacedOrder->tableNum);
+				
+					echo "<br><br>";
 
 				} // end While
 
@@ -339,21 +353,6 @@ $table = $_POST['table'];	// Table number
 //			}
 
 ?>
-
-<!-- Button to ask for a customer table number and calls basketConfirm screen.  	-->
-<!--     basketConfirm screen will convert the basket into a completed order.		-->
-<div class="form-popup" id="myForm">
-	<form name = "form" action="basketConfirm.php" method = "post" enctype = "multipart/form-data" >
- <!-- <form action="basketConfirm.php" class="form-container">   -->
-		<h1></h1>
-		<button type="submit" class="btn">Confirm Order</button>
-		<label for="Table Number"><b>Table Number</b></label>
-		<input type="text" placeholder="?" name="table" required/>    
-  </form>
-</div>
-
-  </form>
-</div>
 
 
 <!-- Button to return to Home page	-->
