@@ -1,17 +1,4 @@
-CREATE TABLE Account(
-    accountId INT AUTO_INCREMENT NOT NULL,
-    permissions VARCHAR(45) NOT NULL,
-    name VARCHAR(45) NOT NULL,
-    telephone VARCHAR(45) NOT NULL,
-    email VARCHAR(45) NOT NULL,
-    password VARCHAR(45) NOT NULL,
-    PRIMARY KEY ( accountId )
-);
-
-
-
-
-CREATE TABLE Product(
+CREATE TABLE product(
     productId INT AUTO_INCREMENT NOT NULL,
     productName VARCHAR(45) NOT NULL,
     productDetails VARCHAR(100) NOT NULL,
@@ -19,11 +6,20 @@ CREATE TABLE Product(
     category VARCHAR(45) NOT NULL,
     cost DECIMAL(4,2) NOT NULL,
     PRIMARY KEY (productId)
-)
+);
+
+CREATE TABLE basket(
+    orderItemNum INT NOT NULL,
+    quantity INT NOT NULL,
+    productId INT NOT NULL,
+    productName VARCHAR(45) NOT NULL,
+    orderCost DECIMAL(4,2) NOT NULL,
+    tableNum INT NOT NULL,
+    PRIMARY KEY (orderItemNum)   
+);
 
 
-
-CREATE TABLE OrderId(
+CREATE TABLE orderid(
     orderId INT AUTO_INCREMENT NOT NULL,
     accountId INT NOT NULL,
     cost DECIMAL(4, 2) NOT NULL,
@@ -33,15 +29,39 @@ CREATE TABLE OrderId(
 
 
 
-
-
-CREATE TABLE PlacedOrder(
+CREATE TABLE placedorder(
     orderId INT NOT NULL,
+    orderItemNum INT NOT NULL,
     quantity INT NOT NULL,
     productId INT NOT NULL,
+    productName VARCHAR(45) NOT NULL,
     orderCost DECIMAL(4,2) NOT NULL,
     tableNum INT NOT NULL,
-    PRIMARY KEY (orderId),
     FOREIGN KEY (orderId) REFERENCES OrderId(orderId),
     FOREIGN KEY (productId) REFERENCES product(productId)
 );
+
+
+
+CREATE TABLE account(
+    accountId INT AUTO_INCREMENT NOT NULL,
+    permissions VARCHAR(45) NOT NULL,
+    name VARCHAR(45) NOT NULL,
+    telephone VARCHAR(45) NOT NULL,
+    email VARCHAR(45) NOT NULL,
+    password VARCHAR(45) NOT NULL,
+    PRIMARY KEY (accountId)
+);
+
+
+
+CREATE TABLE loggedon(
+    accountId INT AUTO_INCREMENT NOT NULL,
+    email VARCHAR(45) NOT NULL,
+    permissions VARCHAR(45) NOT NULL,       
+    PRIMARY KEY (accountId)
+);
+
+
+
+
