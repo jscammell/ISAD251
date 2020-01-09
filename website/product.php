@@ -71,7 +71,7 @@
 					<input type="submit" name="btnShow" value="Modify Products"</input>
 			</div>
 			<div class "form_group">
-					<label>Modify Product (Enter product ID):   </label>
+					<label>(Enter product ID to Modify):   </label>
 					<input type ="text" name ="productId" value=""  required/>
 			</div>
 		</form>

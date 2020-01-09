@@ -32,7 +32,7 @@
 				</div>
 				<div class "form_group">
 					<label>Password:   </label>
-					<input type ="text" name ="accountPwd" value=""  required/>
+					<input type ="password" name ="accountPwd" value=""  required/>
 				</div>
 				
 				<!-- Button to call LoginAdd screen	-->

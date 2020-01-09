@@ -177,32 +177,6 @@ $table = $_POST['table'];	// Table number
 				echo "<br>";
 
 			} //end while
-
-
-//			//	if the quantity stock is > 0, then add the record to the basket.
-//			if ($obj->stockCount > 0)
-//			{	
-//				$sql="INSERT INTO placeholder (orderId, orderItemNum, quantity, productId, orderCost, tableNum) VALUES ($last_orderId, '$objbasket->orderItemNum', '$objbasket->quantity', '$objbasket->productId', '$objbasket->orderCost', '$table')";
-//				if ($conn->query($sql) === TRUE)  {
-//					echo "";		// "New record created successfully";
-//				} else {
-//					echo "Error " . $sql . "<br>" . $conn->error;
-//				}
-//
-//				echo "<br>";
-//				echo "<td>**  1x </td>";
-//				echo "<b>'$obj->productName' </b>";
-//				echo "<td>Added to Basket  **</td>";
-//				echo "<br>";
-//
-//			// else not enough stock so do not insert into basket.				
-//			} else {
-//				echo "<br>";
-//				echo "<td>**  Not enough stock of </td>";
-//				echo "<b>'$obj->productName' </b>";
-//				echo "<td> so NOT added to Basket  **</td>";
-//				echo "<br>";
-//			}
 //	
 
 			mysqli_free_result($resultbasket);
@@ -269,88 +243,88 @@ $table = $_POST['table'];	// Table number
 
 
 
-	//
-	//	7.	Display the order details on screen.
-	//			Including:
-	//				- OrderId, Person placing order, Total cost, Table number
-	//				-    Each item ordered, price, quantity
-	//
-			
-		//	SELECT all records needed from each table. 
-			{
-			$conn = mysqli_connect($servername, $username, $password, $database);
-			if (!$conn) {
-				die("connection failed: " . mysqli_connect_error());
-}			}
-
-			//  Find orderId information
-			$sql="SELECT orderId, accountId, cost  FROM  orderid  WHERE orderId = '$last_orderId'";
-			$resultOrderId = $conn->query($sql);
-			$objOrderId = mysqli_fetch_object($resultOrderId);
-
-			//  now find the email/name using accountId from table "account"
-			$sql="SELECT name, email FROM  account  WHERE accountId = $objOrderId->accountId";
-			$resultAccount = $conn->query($sql);
-			$objAccount = mysqli_fetch_object($resultAccount);
-
-			//  now find the order details from table "placedorder" using OrderId from the main order
-			$sql="SELECT orderItemNum, quantity, productId, productName, orderCost, tableNum FROM placedorder WHERE orderId = $last_orderId";
-			$resultPlacedOrder = $conn->query($sql);
-	//		$objPlacedOrder = mysqli_fetch_object($resultPlacedOrder);
-
-		
-		//	Print on screen the Order, Person and Detail information
-				echo "<br><br>";	   
-				echo "Order Number: ";
-				printf ("%s ",$objOrderId->orderId);
-				echo "Total Cost: $";
-				printf ("%s ",$objOrderId->cost);
-				echo ".....";
-				printf ("%s ",$objAccount->name);
-				echo " / ";
-				printf ("%s ",$objAccount->email);
-				echo "<br><br>";
-
-				while ($objPlacedOrder=mysqli_fetch_object($resultPlacedOrder))
-				{
-					echo "Quantity: ";
-					printf ("%s ",$objPlacedOrder->quantity);
-					echo " ...    ";
-					
-					echo "Item: ";
-					printf ("%s ",$objPlacedOrder->productName);
-					echo " ...........    ";
-
-					echo "Cost  $";
-					printf ("%s ",$objPlacedOrder->orderCost);
-					echo " ...........    ";
-					
-					echo "Table:";
-					printf ("%s ",$objPlacedOrder->tableNum);
-				
-					echo "<br><br>";
-
-				} // end While
-
-				echo "<br>";
-
-
-				echo "Table Number:  ";
-				printf ("%s ",$table);
-				echo "<br><br>";
-				
-
-
-				mysqli_free_result($resultOrderId);
-				mysqli_free_result($resultPlacedOrder);
-				mysqli_free_result($resultAccount);
-			
-
-
-
-			mysqli_close($conn);
-
-//			}
+//	//
+//	//	7.	Display the order details on screen.
+//	//			Including:
+//	//				- OrderId, Person placing order, Total cost, Table number
+//	//				-    Each item ordered, price, quantity
+//	//
+//			
+//		//	SELECT all records needed from each table. 
+//			{
+//			$conn = mysqli_connect($servername, $username, $password, $database);
+//			if (!$conn) {
+//				die("connection failed: " . mysqli_connect_error());
+//}			}
+//
+//			//  Find orderId information
+//			$sql="SELECT orderId, accountId, cost  FROM  orderid  WHERE orderId = '$last_orderId'";
+//			$resultOrderId = $conn->query($sql);
+//			$objOrderId = mysqli_fetch_object($resultOrderId);
+//
+//			//  now find the email/name using accountId from table "account"
+//			$sql="SELECT name, email FROM  account  WHERE accountId = $objOrderId->accountId";
+//			$resultAccount = $conn->query($sql);
+//			$objAccount = mysqli_fetch_object($resultAccount);
+//
+//			//  now find the order details from table "placedorder" using OrderId from the main order
+//			$sql="SELECT orderItemNum, quantity, productId, productName, orderCost, tableNum FROM placedorder WHERE orderId = $last_orderId";
+//			$resultPlacedOrder = $conn->query($sql);
+//	//		$objPlacedOrder = mysqli_fetch_object($resultPlacedOrder);
+//
+//		
+//		//	Print on screen the Order, Person and Detail information
+//				echo "<br><br>";	   
+//				echo "Order Number: ";
+//				printf ("%s ",$objOrderId->orderId);
+//				echo "Total Cost: $";
+//				printf ("%s ",$objOrderId->cost);
+//				echo ".....";
+//				printf ("%s ",$objAccount->name);
+//				echo " / ";
+//				printf ("%s ",$objAccount->email);
+//				echo "<br><br>";
+//
+//				while ($objPlacedOrder=mysqli_fetch_object($resultPlacedOrder))
+//				{
+//					echo "Quantity: ";
+//					printf ("%s ",$objPlacedOrder->quantity);
+//					echo " ...    ";
+//					
+//					echo "Item: ";
+//					printf ("%s ",$objPlacedOrder->productName);
+//					echo " ...........    ";
+//
+//					echo "Cost  $";
+//					printf ("%s ",$objPlacedOrder->orderCost);
+//					echo " ...........    ";
+//					
+//					echo "Table:";
+//					printf ("%s ",$objPlacedOrder->tableNum);
+//				
+//					echo "<br><br>";
+//
+//				} // end While
+//
+//				echo "<br>";
+//
+//
+//				echo "Table Number:  ";
+//				printf ("%s ",$table);
+//				echo "<br><br>";
+//				
+//
+//
+//				mysqli_free_result($resultOrderId);
+//				mysqli_free_result($resultPlacedOrder);
+//				mysqli_free_result($resultAccount);
+//			
+//
+//
+//
+//			mysqli_close($conn);
+//
+// //			}
 
 ?>
 

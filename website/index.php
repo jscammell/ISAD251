@@ -1,26 +1,33 @@
 <!doctype html>
 
-<!-- -----------------------------------------------------------------------------  -->
-<!--	Author			- Josh Scammell												-->
-<!--	Subject			- Computer information and security							-->
-<!--	Module			- ISAD251													-->
-<!--	Lecturer		- Shirley Atkinson											-->
-<!--	submission Date - 10/01/2020												-->
-<!--																				-->
-<!--	Program name	- Tea room ordering system									-->
-<!--	Version			- 1.0														-->
-<!--	Description		-															-->	
-<!--																				-->
-<!--																				-->
-<!--																				-->
-<!-- -----------------------------------------------------------------------------  -->
-
-
-
-
-
-
-
+<!-- ---------------------------------------------------------------------------------------------  -->
+<!--	Author			- Josh Scammell																-->
+<!--	Subject			- Computer information and security											-->
+<!--	Module			- ISAD251																	-->
+<!--	Lecturer		- Shirley Atkinson															-->
+<!--	submission Date - 10/01/2020																-->
+<!--																								-->
+<!--	Program name	- Tea room ordering system													-->
+<!--	Version			- 1.0																		-->
+<!--																								-->
+<!--	Description		-																			-->					
+<!--		The application has been designed so that it displays a									-->
+<!--		range of drinks and snacks for sale at a tea room. The user is then able to select		-->	
+<!--		the desired product and choose a quantity that they would like, once the item has		-->
+<!--		been purchased, it will deduct the amount purchased from the quantity in stock on		-->		 
+<!--		the database.																			-->
+<!--		The website is designed to be used by both staff (administrators) at the tea room		-->
+<!--		and by customers placing orders to be delivered to the table.							-->
+<!--		The website can be used through a browser of your choice. Once the customer has			-->
+<!--		found a table, they can then access the website to order drinks and snacks and			-->		
+<!--		select their table number so they can be served. Alternatively they can place the  	    --> 	
+<!--		order with a tea room staff member who will go through the same process so that			-->
+<!--		the snacks and drinks will be delivered to their table, and ensuring the database		-->
+<!--		is kept up to date with what has been purchased.										-->
+<!--																								-->
+<!--																								-->
+<!--																								-->
+<!-- ---------------------------------------------------------------------------------------------  -->
 
 
 

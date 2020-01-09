@@ -44,17 +44,19 @@
 				die("connection failed: " . mysqli_connect_error());
 				}
 
-
-			$sql="SELECT productId, productName, productDetails, stockCount, category, cost FROM product  WHERE productId='$productId'";
+			$sql="SELECT productId, productName, productDetails, stockCount, category, cost FROM product  WHERE productId=14";
+	//		$sql="SELECT productId, productName, productDetails, stockCount, category, cost FROM product  WHERE productId='$productId'";
 			$resultModify = $conn->query($sql);
 			$objModify = mysqli_fetch_object($resultModify);
 
 
 	//		if ($result -> $obj->accountId > 0)  {
+?>
 	<form name = "form" action="productModifySave.php" method = "post" enctype = "multipart/form-data" >
 		<div class = "container">
 			// setting out fields on the screen to show product information to modify
 			</div>
+				
 				<div class "form_group">
 					<label>Product Name:  </label>
 					<input type ="text" name ="productName" value="$obj->productName"  required/>
@@ -69,7 +71,7 @@
 				</div>
 				<div class "form_group">
 					<label>Category (Drink or Snack):   </label>
-					<input type ="text" name ="category" value="$obj->category"  required/>
+					<input type ="text" name ="category" value=$obj->category  required/>
 				</div>
 				<div class "form_group">
 					<label>Cost:   </label>
@@ -80,11 +82,12 @@
 			//	<!-- Button to save product updates	-->
 				<div class="productbutton" id="myForm4">
   					<form method="post" action="productModifySave.php" class="form-container">
-					<input type="submit" name="btnAdd" value="Create Product"</input>
+					<input type="submit" name="btnAdd" value="Save Changes"</input>
 				</div>
 					
 		</div>
 	</form>
+
 
   </div>
 
@@ -92,7 +95,7 @@
 
 	mysqli_close($conn);
 			
-
+<?php
 //		} // end if
 	//}
 
