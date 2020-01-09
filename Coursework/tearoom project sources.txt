@@ -1,0 +1,17 @@
+tearoom project sources
+
+Header
+https://www.w3schools.com/css/tryit.asp?filename=trycss_navbar_horizontal_dividers
+
+footer
+https://www.w3schools.com/html/html_layout.asp
+
+drinks and snacks menu
+https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_templates_cafe
+
+drinks and snacks buy now
+https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_templates_clothing_store&stacked=h
+
+Login page
+https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_login_form
+
